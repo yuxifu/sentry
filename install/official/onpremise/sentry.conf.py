@@ -38,6 +38,12 @@ from sentry.conf.server import *  # NOQA
 import os
 import os.path
 
+# https://docs.sentry.io/server/sso/
+# enable SAML2 SSO
+SENTRY_FEATURES['organizations:sso'] = True
+SENTRY_FEATURES['organizations:sso-saml2'] = True
+SENTRY_FEATURES['organizations:sso-rippling'] = False
+
 CONF_ROOT = os.path.dirname(__file__)
 
 postgres = env('SENTRY_POSTGRES_HOST') or (env('POSTGRES_PORT_5432_TCP_ADDR') and 'postgres')
